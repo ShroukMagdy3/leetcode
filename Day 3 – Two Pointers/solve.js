@@ -42,3 +42,31 @@ var removeDuplicates = function(nums) {
     }
     return j;
 };
+
+
+
+
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function(height) {
+    let l =0;
+    let r = height.length-1;
+    let mx =0 ;
+    while(l < r){
+        let diff = r - l; // 8 7 6
+        let h = Math.min(height[l] , height[r]) //1 7 3
+        let area = h * diff; //8 49 18 
+        if(area > mx){
+            mx = area ;// 8 49
+        }
+        if(height[r] > height[l] ){
+            l++;
+        }else{
+            r--;
+        }
+    }
+    return mx;
+};
